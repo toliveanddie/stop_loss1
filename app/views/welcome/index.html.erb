@@ -1,0 +1,48 @@
+<h1>add a stock</h1>
+
+<%= form_with scope: :stock, url: stocks_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :entry %><br>
+    <%= form.text_field :entry %>
+  </p>
+  
+   <p>
+    <%= form.label :stop_loss %><br>
+    <%= form.text_field :stop_loss %> enter zero if unknown
+  </p>
+ 
+  <p>
+    <%= form.submit "enter stock" %>
+  </p>
+<% end %>
+
+<hr>
+
+<h1>My Stocks</h1>
+
+<% my_key = "O7IKZVGI2H69M5G9" %>
+
+<table class="table">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Entry</th>
+    <th>Stop_loss</th>
+    
+  </tr>
+ 
+  <% @stocks.each do |stock| %>
+    <tr>
+      <td><%= link_to 'delete', stock_path(stock), method: :delete %></td>
+      <td><%= stock_name(stock.name, my_key).upcase %></td>
+      <td><%= stock.entry %></td>
+      <td><%= stop_loss_price(stock.name, stock.entry, stock.stop_loss, my_key).ceil(2) %></td>
+      
+    </tr>
+  <% end %>
+</table>
