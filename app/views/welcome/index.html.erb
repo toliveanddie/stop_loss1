@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h1>add a stock</h1>
 
 <%= form_with scope: :stock, url: stocks_path, local: true do |form| %>
@@ -46,3 +47,9 @@
     </tr>
   <% end %>
 </table>
+
+<% else %>
+  <br>
+  <br>
+  <%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary" %>
+<% end %>
