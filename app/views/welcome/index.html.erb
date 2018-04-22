@@ -48,6 +48,10 @@
   <% end %>
 </table>
 
+<br>
+<br>
+<%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+
 <% else %>
   <br>
   <br>
