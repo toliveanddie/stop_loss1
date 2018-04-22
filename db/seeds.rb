@@ -10,8 +10,8 @@
 
 User.create!(
   email: '111@aaa.com',
-  password: 'kelley22..',
-  password_confirmation: 'kelley22..')
+  password: 'billy22..',
+  password_confirmation: 'billy22..')
 
 
   
